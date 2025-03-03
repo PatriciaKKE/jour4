@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: plum;
+        }
+        input {
+            padding: 8px;
+            width: 250px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #recherchebutton {
+            background-color: #28a745;
+            color: white;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: beige;
+        }
+        .deleteButton {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid white; 
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="idHeader">
+        <h1>ToDo List</h1>
+    </header>
+    <input type="text" id="mysearch" placeholder="Entrer une recherche" />
+    <button id="recherchebutton">Chercher</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById("recherchebutton").addEventListener("click", addTask);
+
+        function addTask() { /*Cette fonction est appelée lorsque l'utilisateur clique sur le bouton*/
+
+            let input = document.getElementById("mysearch"); /*document.getElementById("mysearch"): Récupère l'élément <input> où l'utilisateur tape son texte.*/
+             /*Stocke l'élément dans la variable input: On pourra ensuite accéder à la valeur que l'utilisateur a entrée.*/
+
+            let taskText = input.value.trim(); /*input.value:  Récupère le texte saisi dans l'input.*/
+            /*trim permet de supprimer les espaces inutiles avant et apres les mots*/
+
+            if (taskText !== "") { /*Condition pour vérifier que l'input n'est pas vide si l'utilisateur n'a rien tapé, la tâche ne sera pas ajoutée.*/
+
+                let taskList = document.getElementById("taskList"); /*Récupère la liste <ul> où seront affichées les tâches
+                    Cet élément contient toutes les tâches sous forme de <li>.*/
+
+                let newTask = document.createElement("li"); /*cree une nouvelle tache dans la liste*/
+
+                let taskTextNode = document.createElement("span"); /*Ce <span> contiendra le texte de la tâche*/
+                taskTextNode.textContent = taskText; //Ajoute le texte saisi dans le <span>
+
+                let deleteButton = document.createElement("button"); //creer le buton qui permettra de supprimer la tache
+                deleteButton.textContent = "Supprimer"; //ajout le text "supprimer" au bouton
+                deleteButton.className = "deleteButton"; // Ajoute une classe CSS au bouton via .deleteButton
+
+                deleteButton.addEventListener("click", function() { //Lorsque l'utilisateur clique sur le bouton "Supprimer", la fonction anonyme s'exécute.
+                    taskList.removeChild(newTask); //Supprime l'élément <li> de la liste.
+                });
+
+                newTask.appendChild(taskTextNode); //Ajoute le texte et le bouton dans le <li>
+                newTask.appendChild(deleteButton); 
+
+                taskList.appendChild(newTask); //Ajoute le <li> à la liste <ul>. La nouvelle tâche est affichée à l'écran.
+
+                input.value = ""; //Vide l'input après l'ajout de la tâche
+            }
+        } 
+    </script>
+</body>
+
+</html>

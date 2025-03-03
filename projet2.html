@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header id="idHeader">
+        <h1 id>HELLO</h1>
+        <span class="classname">
+            test
+        </span>
+    </header>
+
+    <script>
+        const header = document.getElementById("idHeader")
+        const span =  document.getElementsByClassName("classname")
+        const h1 = document.getElementsByTagName("h1")
+    </script>
+
+    <script>
+        function changeColor() {
+        const h1 = document.getElementById("idHeader");
+        header.style.color = "purple";
+        }
+    </script>
+</body>
+</html>

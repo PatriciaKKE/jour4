@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le JavaScript</title>
+    <script>
+        const variable1 = "constante"
+        let variable2 = "pas constante"
+        let character = "string"
+        let number = 1234
+
+        let var3 = null;
+        let var4;
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i)
+        }
+        for (let i = 0; i < variable2.length; i++) {
+            console.log(variable2[i])
+        }
+
+        const tableau = [ /*tableau pour insertion d'un tableau*/
+            "HELLO",
+            1234,
+            null,
+            "WORLD",
+            undefined
+        ]
+
+        for (let i = 0; i < tableau.length; i++) {
+            console.log(tableau[i]) /*affichage des elements du tableau*/
+            console.log(typeof tableau[i]) /*ca nous donne l'element du tableau a afficher*/
+            if (1 === 1){
+                console.log("ok")
+            }
+
+            if (1 === "1"){
+                console.log("not ok")
+            }
+
+            for (let i=0; i < tableau.length; i++) {
+                if(typeof tableau[i] === "string");
+                console.log(" type string")
+            }
+
+            }
+
+            const obj1 = ["Ho", "He"]
+            const obj2 = {
+                ins1: "string",
+                ins2: 123,
+                ins3: ["hello", "world", "bye"],
+                ins4: {
+                    name: "XYZ",
+                    url: "#"
+                },
+                ins5: function () {console.log("HI! I am a function") },
+            }
+
+            function sum(x,y) {
+                return x + y
+            }
+            function sous(x,y){
+                return x - y
+            }
+            function mul(x,y){
+                return x * y
+            }
+            function div(x,y){
+                return x / y
+            }
+            function mo(x,y){
+                return x % y
+            }
+
+        const tab2 = []
+        tab2.push("Patricia")
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
